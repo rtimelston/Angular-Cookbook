@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { GalleryComponent } from "./components/gallery/gallery.component";
 
 @Component({
   selector: 'app-root',
@@ -8,11 +9,17 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'cc-view-child';
 
+  // Angular ViewChild: https://angular.io/api/core/ViewChild
+  // The view query is executed after the ngOnInit life cycle hook and before the ngAfterViewInit hook.
+  @ViewChild(GalleryComponent) gallery;
+
   addNewPicture() {
-    console.log('added new picture');
+    // Array's unshift method: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/unshift
+    this.gallery.pictures.unshift(this.gallery.generateImage());
   }
 
   removeFirstPicture() {
-    console.log('removed first picture');
+    // Array's shift method: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/shift
+    this.gallery.pictures.shift();
   }
 }
