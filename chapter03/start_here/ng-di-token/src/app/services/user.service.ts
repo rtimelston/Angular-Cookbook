@@ -1,5 +1,6 @@
-import { Injectable } from '@angular/core';
-import { Greeter } from '../classes/greeter.class';
+import { Inject, Injectable } from '@angular/core';
+import { GREETER, Greeter } from '../classes/greeter.class';
+import { User } from "../interfaces/user.interface";
 
 @Injectable({
   providedIn: 'root'
@@ -18,10 +19,10 @@ export class UserService {
     firstName: 'Peter',
     lastName: 'Parker'
   }]
-  constructor() { }
+  constructor(@Inject(GREETER) public greeter: typeof Greeter) { }
 
   getUser() {
-    const user = this.users[Math.floor(Math.random() * this.users.length)]
-    return new Greeter(user);
+    const user: User = this.users[Math.floor(Math.random() * this.users.length)]
+    return new this.greeter(user);
   }
 }
