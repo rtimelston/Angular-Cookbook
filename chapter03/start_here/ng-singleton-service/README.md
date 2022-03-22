@@ -2,6 +2,14 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.6.
 
+```text
+nvm use 12.20.0
+npm uninstall -g @angular/cli
+npm install -g @angular/cli@10.0.6
+npm install
+ng serve -o
+```
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
