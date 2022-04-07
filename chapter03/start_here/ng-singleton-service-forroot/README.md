@@ -1,5 +1,24 @@
 # NgSingletonServiceForroot
 
+## Key Lesson Concepts
+
+```text
+ModuleWithProviders
+@NgModule
+```
+## Lesson Summary
+
+ModuleWithProviders is a wrapper around NgModule, which is associated with the providers array that is used in NgModule. 
+It allows you to declare NgModule with providers, so the module where it is being imported gets the providers as well. 
+We created a forRoot() method in our ServicesModule class that returns ModuleWithProviders containing our provided NotificationsService. 
+This allows us to provide NotificationsService only once in the entire app, which results in only one instance of the service in the app.
+
+See also
+The ModuleWithProviders Angular documentation ([https://angular.io/api/core/ModuleWithProviders](https://angular.io/api/core/ModuleWithProviders)).
+The ModuleWithProviders migration documentation ([https://angular.io/guide/migration-module-with-providers](https://angular.io/guide/migration-module-with-providers)).
+
+## Project Creation
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.6.
 
 ## Development server
