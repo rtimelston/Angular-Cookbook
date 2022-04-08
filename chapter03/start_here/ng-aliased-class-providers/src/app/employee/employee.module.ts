@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { SharedModule } from '../shared/shared.module';
 import { EmployeeRoutingModule } from './employee-routing.module';
 import { EmployeeComponent } from './employee.component';
+import { EmployeeBucketService } from "./services/employee-bucket.service";
+import { BucketService } from "../services/bucket.service";
 
 
 @NgModule({
@@ -11,6 +13,11 @@ import { EmployeeComponent } from './employee.component';
     CommonModule,
     EmployeeRoutingModule,
     SharedModule
-  ]
+  ],
+  providers: [{
+    provide: BucketService,
+    useClass: EmployeeBucketService
+  }]
+
 })
 export class EmployeeModule { }
